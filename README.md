@@ -26,6 +26,12 @@ The product turns a Solflare wallet into that operating surface. Kamino is the c
 - `Solflare` for wallet-first onboarding and signing flows
 - `QuickNode` for responsive reads and live state updates
 
+## Live links
+
+- Live dApp: https://capital-radar.netlify.app/
+- Eitherway preview: https://preview.eitherway.ai/d0a73a02-0d91-4e66-9afe-6e31ecaa4eef/
+- Demo video: https://github.com/frederik-maker/eitherway-capital-radar/releases/download/submission-assets-v1/capital-radar-demo-final.mp4
+
 ## Visual preview
 
 ![Capital Radar home screen](./assets/capital-radar-home.png)
