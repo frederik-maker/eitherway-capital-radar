@@ -1,6 +1,6 @@
 # Capital Radar
 
-Capital Radar is a wallet-native operating desk for Solana users managing productive capital on Kamino.
+Capital Radar is a wallet-native operating desk for Solana users who want a clearer view of wallet state, deployed capital, and Kamino exposure.
 
 Most portfolio tools show balances. Capital Radar is designed to answer the questions that actually matter when a wallet is active onchain:
 
@@ -9,16 +9,16 @@ Most portfolio tools show balances. Capital Radar is designed to answer the ques
 3. Where is my Kamino risk creeping up?
 4. What is the next action worth taking?
 
-The product turns a Solflare wallet into that operating surface. Kamino is the core engine for yield and position management, QuickNode provides the low-latency live state layer, and Solflare is treated as the primary interface for wallet actions instead of a generic connect button.
+The product turns a Solflare wallet into that operating surface. Kamino provides the protocol context, QuickNode provides the live state layer, and Solflare is treated as the primary wallet entry point instead of a generic connect button.
 
 ## Core experience
 
-- wallet balance and idle capital
-- Kamino earn and borrow positions
-- liquidation buffer and health signals
-- live activity feed and transaction status
-- suggested next actions such as deposit, repay, rebalance, or unwind
-- transaction preview before signature
+- Solflare-first landing and wallet entry
+- read-only inspection for live Solana addresses
+- portfolio overview with wallet value, deployed capital, and health factor
+- Kamino positions panel and capital allocation view
+- activity rail and quick links to Kamino, Jupiter, and Solscan
+- mobile-friendly wallet inspection flow
 
 ## Partner stack
 
