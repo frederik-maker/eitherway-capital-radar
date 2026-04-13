@@ -1,0 +1,292 @@
+const now = Math.floor(Date.now() / 1000);
+
+const commonPrices = {
+  SOL: { usd: 81.8, change24h: -0.3 },
+  BTC: { usd: 68690, change24h: 1.1 },
+  ETH: { usd: 2184, change24h: -0.8 },
+  JitoSOL: { usd: 104.04, change24h: -0.5 },
+  USDC: { usd: 1, change24h: 0 },
+  USDT: { usd: 1, change24h: 0 },
+  USDG: { usd: 1, change24h: 0.1 },
+  BONK: { usd: 0.000006, change24h: -1.6 },
+};
+
+export const DEMO_PROFILES = [
+  {
+    id: 'btc-carry',
+    label: 'BTC Carry',
+    description: 'cbBTC collateral, USDG debt, healthy but leveraged.',
+    address: 'AcNSmd5CxwLs21TYUmhWt7CW2v159TdYRkvQxb1iBYRj',
+    sourceLabel: 'Curated demo scenario based on live Kamino market structure.',
+    portfolio: {
+      solBalance: 14.82,
+      solValueUsd: 1212,
+      tokens: [
+        {
+          mint: 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+          symbol: 'USDC',
+          name: 'USD Coin',
+          amount: 6842.13,
+          valueUsd: 6842.13,
+          price: 1,
+          color: '#2775CA',
+          stable: true,
+        },
+        {
+          mint: 'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn',
+          symbol: 'JitoSOL',
+          name: 'Jito Staked SOL',
+          amount: 21.46,
+          valueUsd: 2232,
+          price: 104.04,
+          color: '#8BC34A',
+          stable: false,
+        },
+      ],
+      recentTxs: [
+        {
+          title: 'Added cbBTC collateral to Kamino',
+          subtitle: 'Main Market · 18m ago',
+          status: 'Confirmed',
+          blockTime: now - 18 * 60,
+          externalUrl:
+            'https://solscan.io/account/AcNSmd5CxwLs21TYUmhWt7CW2v159TdYRkvQxb1iBYRj',
+        },
+        {
+          title: 'Borrowed USDG against collateral',
+          subtitle: 'Read-only demo event',
+          status: 'Confirmed',
+          blockTime: now - 42 * 60,
+        },
+        {
+          title: 'Rebalanced idle USDC into wallet buffer',
+          subtitle: 'Demo workflow checkpoint',
+          status: 'Ready',
+          blockTime: now - 3 * 3600,
+        },
+      ],
+      prices: commonPrices,
+      lastUpdated: Date.now(),
+    },
+    kamino: {
+      lending: [
+        {
+          id: 'btc-carry-sol',
+          asset: 'SOL',
+          type: 'supply',
+          amount: 2.6688,
+          valueUsd: 218,
+          apy: 3.9,
+          utilization: 86,
+          market: 'Main Market',
+        },
+        {
+          id: 'btc-carry-cbbtc',
+          asset: 'cbBTC',
+          type: 'supply',
+          amount: 1.4488,
+          valueUsd: 102847,
+          apy: 0.0,
+          utilization: 3,
+          market: 'Main Market',
+        },
+      ],
+      borrowing: [
+        {
+          id: 'btc-carry-usdg',
+          asset: 'USDG',
+          type: 'borrow',
+          amount: 74264.38,
+          valueUsd: 74264.38,
+          apy: 7.0,
+          market: 'Main Market',
+        },
+      ],
+      vaults: [],
+      healthFactor: 1.48,
+      obligations: [{ market: 'Main Market' }],
+    },
+  },
+  {
+    id: 'stable-yield',
+    label: 'Stable Yield',
+    description: 'Idle stables routed into low-drama lending and vault exposure.',
+    address: '7WQeTuLsFrZsgnHW7ddFdNfhfJAViqH4mvcFZPQ5zuQ9',
+    sourceLabel: 'Curated demo scenario for a stablecoin-heavy operator wallet.',
+    portfolio: {
+      solBalance: 5.63,
+      solValueUsd: 460.63,
+      tokens: [
+        {
+          mint: 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+          symbol: 'USDC',
+          name: 'USD Coin',
+          amount: 12940.55,
+          valueUsd: 12940.55,
+          price: 1,
+          color: '#2775CA',
+          stable: true,
+        },
+        {
+          mint: 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB',
+          symbol: 'USDT',
+          name: 'Tether USD',
+          amount: 5320.4,
+          valueUsd: 5320.4,
+          price: 1,
+          color: '#50AF95',
+          stable: true,
+        },
+      ],
+      recentTxs: [
+        {
+          title: 'Rolled idle USDC into Kamino lending',
+          subtitle: 'Stable income sleeve',
+          status: 'Confirmed',
+          blockTime: now - 27 * 60,
+        },
+        {
+          title: 'Harvested vault fees',
+          subtitle: 'Read-only demo event',
+          status: 'Confirmed',
+          blockTime: now - 2 * 3600,
+        },
+      ],
+      prices: commonPrices,
+      lastUpdated: Date.now(),
+    },
+    kamino: {
+      lending: [
+        {
+          id: 'stable-yield-usdc',
+          asset: 'USDC',
+          type: 'supply',
+          amount: 24150,
+          valueUsd: 24150,
+          apy: 7.8,
+          utilization: 84,
+          market: 'Main Market',
+        },
+        {
+          id: 'stable-yield-usdt',
+          asset: 'USDT',
+          type: 'supply',
+          amount: 9870,
+          valueUsd: 9870,
+          apy: 6.9,
+          utilization: 78,
+          market: 'Main Market',
+        },
+      ],
+      borrowing: [],
+      vaults: [
+        {
+          id: 'stable-vault',
+          name: 'USDC-USDT Stable Vault',
+          strategy: 'Delta-neutral stable yield',
+          deposited: 14500,
+          apy: 6.2,
+          fees24h: 18.41,
+          inRange: true,
+          dex: 'Orca',
+        },
+      ],
+      healthFactor: null,
+      obligations: [],
+    },
+  },
+  {
+    id: 'sol-operator',
+    label: 'SOL Operator',
+    description: 'LST-heavy wallet with concentration risk and deployable cash.',
+    address: 'FW4g55qBGcX1AZ3fK8n3bBR4YxyWV3bQj4u2gVGvP3tS',
+    sourceLabel: 'Curated demo scenario for a SOL-heavy power user.',
+    portfolio: {
+      solBalance: 86.3,
+      solValueUsd: 7059.34,
+      tokens: [
+        {
+          mint: 'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn',
+          symbol: 'JitoSOL',
+          name: 'Jito Staked SOL',
+          amount: 113.2,
+          valueUsd: 11777.33,
+          price: 104.04,
+          color: '#8BC34A',
+          stable: false,
+        },
+        {
+          mint: 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+          symbol: 'USDC',
+          name: 'USD Coin',
+          amount: 3185.22,
+          valueUsd: 3185.22,
+          price: 1,
+          color: '#2775CA',
+          stable: true,
+        },
+      ],
+      recentTxs: [
+        {
+          title: 'Shifted SOL into JitoSOL',
+          subtitle: 'LST rotation',
+          status: 'Confirmed',
+          blockTime: now - 31 * 60,
+        },
+        {
+          title: 'Opened SOL collateral position',
+          subtitle: 'Risk-on carry setup',
+          status: 'Confirmed',
+          blockTime: now - 6 * 3600,
+        },
+      ],
+      prices: commonPrices,
+      lastUpdated: Date.now(),
+    },
+    kamino: {
+      lending: [
+        {
+          id: 'sol-op-jitosol',
+          asset: 'JitoSOL',
+          type: 'supply',
+          amount: 95.4,
+          valueUsd: 9925.42,
+          apy: 4.4,
+          utilization: 72,
+          market: 'Main Market',
+        },
+      ],
+      borrowing: [
+        {
+          id: 'sol-op-usdc',
+          asset: 'USDC',
+          type: 'borrow',
+          amount: 4200,
+          valueUsd: 4200,
+          apy: 5.8,
+          market: 'Main Market',
+        },
+      ],
+      vaults: [
+        {
+          id: 'sol-op-vault',
+          name: 'SOL-JitoSOL Range Vault',
+          strategy: 'LST basis capture',
+          deposited: 6600,
+          apy: 9.3,
+          fees24h: 24.72,
+          inRange: false,
+          dex: 'Meteora',
+          range: { lower: 98.2, current: 104.04, upper: 109.8 },
+        },
+      ],
+      healthFactor: 1.91,
+      obligations: [{ market: 'Main Market' }],
+    },
+  },
+];
+
+export function getDemoProfileById(profileId) {
+  return DEMO_PROFILES.find((profile) => profile.id === profileId) || null;
+}
+

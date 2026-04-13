@@ -1,58 +1,65 @@
 # Capital Radar
 
-Capital Radar is a wallet-native operating desk for Solana users who want a clearer view of wallet state, deployed capital, and Kamino exposure.
+Capital Radar is a wallet-native Solana operator desk built for the Eitherway Frontier track. It turns a wallet into an action surface: live balances, recent activity, Kamino exposure, health factor, and next-step prompts in one view.
 
-Most portfolio tools show balances. Capital Radar is designed to answer the questions that actually matter when a wallet is active onchain:
+The app supports two modes:
 
-1. What is my wallet doing right now?
-2. How much of my capital is actually productive?
-3. Where is my Kamino risk creeping up?
-4. What is the next action worth taking?
-
-The product turns a Solflare wallet into that operating surface. Kamino provides the protocol context, QuickNode provides the live state layer, and Solflare is treated as the primary wallet entry point instead of a generic connect button.
-
-## Core experience
-
-- Solflare-first landing and wallet entry
-- read-only inspection for live Solana addresses
-- portfolio overview with wallet value, deployed capital, and health factor
-- Kamino positions panel and capital allocation view
-- activity rail and quick links to Kamino, Jupiter, and Solscan
-- mobile-friendly wallet inspection flow
-
-## Partner stack
-
-- `Kamino` for the capital layer and position logic
-- `Solflare` for wallet-first onboarding and signing flows
-- `QuickNode` for responsive reads and live state updates
+- live read-only inspection for any Solana address
+- curated portfolio scenarios that show the full product surface without relying on a perfect demo wallet
 
 ## Live links
 
 - Live dApp: https://capital-radar.netlify.app/
 - Eitherway preview: https://preview.eitherway.ai/d0a73a02-0d91-4e66-9afe-6e31ecaa4eef/
-- Demo video: https://github.com/frederik-maker/eitherway-capital-radar/releases/download/submission-assets-v1/capital-radar-demo-final.mp4
 
-## Visual preview
+## What it does
 
-![Capital Radar home screen](./assets/capital-radar-home.png)
+- Solflare-first wallet entry with fallback install prompt
+- read-only wallet inspection for any mainnet address
+- wallet value, deployed capital, and health-factor overview
+- Kamino lending and borrow position parsing
+- action center for idle capital and risk prompts
+- activity rail with recent signatures and protocol links
+- mobile-friendly layout with a dedicated side rail toggle
 
-## Repository structure
+## Partner stack
 
-- `prototype/` reference interface for product direction and demo planning
-- `assets/` screenshots used in documentation
-- `docs/PARTNER_INTEGRATION.md` notes on how the partner stack is used in the product
+- `Solflare` for wallet-first onboarding and connection flow
+- `Kamino` for productive-capital and risk context
+- `QuickNode` for live Solana RPC reads
 
-## Local prototype
+## Screens
 
-Open `prototype/index.html` in a browser or serve the folder with:
+![Connect screen](./assets/capital-radar-connect.png)
+
+![Scenario view](./assets/capital-radar-scenario.png)
+
+![Read-only live wallet](./assets/capital-radar-readonly.png)
+
+## Local development
 
 ```bash
-cd /Users/frederikbussler/competition-submissions/eitherway-capital-radar/prototype
-python3 -m http.server 8080
+cd /Users/frederikbussler/competition-submissions/eitherway-capital-radar
+npm install
+npm run dev
 ```
 
-Then visit `http://localhost:8080`.
+Build for production:
+
+```bash
+npm run build
+```
+
+## Environment
+
+Copy `.env.example` to `.env` if you want to override the default RPC or proxy base URL.
+
+## Repo layout
+
+- `src/` React app source
+- `assets/` screenshots for submission and docs
+- `docs/PARTNER_INTEGRATION.md` implementation notes for the track
 
 ## Notes
 
-The production deployment is intended to run as a public Solana dApp. This repository contains the reference interface, screenshots, and partner integration notes used during development.
+The default setup ships with a browser-safe QuickNode Solana endpoint and an env override so the deployment can be pointed at a dedicated QuickNode URL later without changing application code.

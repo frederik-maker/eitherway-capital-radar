@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-graphite-900 text-cream-100 font-sans m-0;
+    font-feature-settings: 'ss01' on, 'cv01' on;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #282830 transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #282830;
+    border-radius: 4px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #3A3A44;
+  }
+}
+
+@layer components {
+  .card-cream {
+    @apply bg-cream-100 text-graphite-900 rounded-2xl shadow-lg shadow-black/10;
+  }
+  .card-dark {
+    @apply bg-graphite-800 border border-graphite-600/50 rounded-2xl;
+  }
+  .card-dark-hover {
+    @apply bg-graphite-800 border border-graphite-600/50 rounded-2xl
+           hover:border-graphite-500 hover:bg-graphite-700 transition-all duration-200;
+  }
+  .btn-acid {
+    @apply bg-acid text-graphite-900 font-semibold px-5 py-2.5 rounded-xl
+           hover:bg-acid-300 active:bg-acid-600 transition-all duration-150
+           focus:outline-none focus:ring-2 focus:ring-acid/40 focus:ring-offset-2 focus:ring-offset-graphite-900;
+  }
+  .btn-ghost {
+    @apply text-cream-400 hover:text-cream-100 hover:bg-graphite-700
+           px-3 py-1.5 rounded-lg transition-all duration-150;
+  }
+  .btn-outline {
+    @apply border border-graphite-500 text-cream-200 px-4 py-2 rounded-xl
+           hover:border-acid hover:text-acid transition-all duration-150;
+  }
+  .label-mono {
+    @apply font-mono text-xs uppercase tracking-wider text-cream-400;
+  }
+  .value-large {
+    @apply font-mono text-2xl font-semibold tracking-tight;
+  }
+  .skeleton {
+    @apply bg-graphite-600/50 rounded-lg animate-pulse;
+  }
+  .health-safe {
+    @apply text-emerald-400;
+  }
+  .health-warn {
+    @apply text-amber-400;
+  }
+  .health-danger {
+    @apply text-red-400;
+  }
+}
+
+@layer utilities {
+  .glow-acid {
+    box-shadow: 0 0 20px rgba(205, 255, 0, 0.15), 0 0 60px rgba(205, 255, 0, 0.05);
+  }
+  .glow-acid-sm {
+    box-shadow: 0 0 8px rgba(205, 255, 0, 0.2);
+  }
+  .text-gradient-acid {
+    background: linear-gradient(135deg, #CDFF00, #B8E600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

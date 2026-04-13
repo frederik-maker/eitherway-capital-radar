@@ -1,59 +1,64 @@
 # Partner Integration
 
-Capital Radar is built around a simple idea: wallet state, productive capital, and execution context should live in the same surface.
-
-## Kamino
-
-Kamino is the core capital layer in the product.
-
-Capital Radar uses Kamino to frame the user's productive positions and risk:
-
-- active deposits and borrows
-- vault allocation
-- yield visibility
-- health and liquidation distance
-- action opportunities such as deploying idle stablecoins or reducing risky exposure
-
-The product is designed so Kamino is not a sidebar integration. It is the center of the capital workflow.
-
-Reference:
-
-- https://kamino.com/docs/build/developers/overview
+Capital Radar is built around the idea that wallet state, productive capital, and risk should be visible in the same interface.
 
 ## Solflare
 
-Solflare is treated as the wallet interface layer rather than a passive connect button.
+Solflare is treated as the primary wallet path, not a generic connect button.
 
-That includes:
+Current implementation:
 
-- wallet-first onboarding
-- transaction preview before signature
-- signing flow support for deposits, repays, and position changes
-- mobile-friendly interaction patterns
+- detects Solflare before other injected wallets
+- gives Solflare-first connection priority
+- falls back to an install CTA when no wallet is present
+- keeps the wallet experience centered in the first screen instead of hiding it behind a dashboard shell
 
-Reference:
+Relevant code:
 
-- https://docs.solflare.com/solflare
+- `src/contexts/WalletContext.jsx`
+- `src/components/ConnectScreen.jsx`
+
+## Kamino
+
+Kamino is the core capital layer.
+
+Current implementation:
+
+- fetches lending markets from Kamino
+- resolves obligations for the inspected wallet
+- normalizes supplies, borrows, utilization, and health factor into UI-friendly cards
+- shows curated scenarios for reliable demos and live parsing for real addresses
+- powers the action center risk and deployment prompts
+
+Relevant code:
+
+- `src/services/kamino.js`
+- `src/components/KaminoPositions.jsx`
+- `src/components/ActionCenter.jsx`
 
 ## QuickNode
 
-QuickNode powers the live state layer of the app.
+QuickNode is used as the live Solana read layer.
 
-That includes:
+Current implementation:
 
-- low-latency wallet and account reads
-- responsive transaction status updates
-- fresher position refreshes
-- an activity rail that feels operational instead of static
+- wallet SOL balance
+- SPL token account reads
+- recent signatures for the activity rail
+- env-based RPC override for production deployment
 
-Reference:
+Relevant code:
 
-- https://www.quicknode.com/chains/sol
+- `src/config.js`
+- `src/services/solana.js`
+- `src/contexts/PortfolioContext.jsx`
 
-## Optional extension
+## Eitherway fit
 
-If the product later needs asset routing before entering or adjusting a target position, DFlow can support an execution path for swaps and rebalances. The current core product stays focused on wallet visibility, Kamino positioning, and action clarity.
+The Eitherway build is not a thin wrapper around partner logos. The product is structured around partner capabilities:
 
-Reference:
+- Solflare owns the wallet entry and first-run UX
+- QuickNode owns the live wallet state layer
+- Kamino owns the deployed-capital and risk layer
 
-- https://pond.dflow.net/build/introduction
+That is the center of the user flow, not an afterthought.
