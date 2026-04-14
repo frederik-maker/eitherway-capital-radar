@@ -1,0 +1,22 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="capital-radar-beam" x1="34" y1="84" x2="90" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BAE00" />
+      <stop offset="1" stop-color="#CDFF00" />
+    </linearGradient>
+    <radialGradient id="capital-radar-sweep" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(64 64) rotate(-32) scale(58)">
+      <stop stop-color="#CDFF00" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#CDFF00" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <path d="M64 64L106 42A48 48 0 0 1 88 102L64 64Z" fill="url(#capital-radar-sweep)" />
+
+  <path d="M102 31A52 52 0 1 0 104 95" stroke="#334018" stroke-width="8" stroke-linecap="round" />
+  <path d="M92 46A36 36 0 1 0 93 82" stroke="#4E6120" stroke-width="6" stroke-linecap="round" />
+  <path d="M81 55A22 22 0 1 0 82 74" stroke="#6F861D" stroke-width="4" stroke-linecap="round" />
+
+  <path d="M34 82L49 67L62 77L88 51" stroke="url(#capital-radar-beam)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="88" cy="51" r="7" fill="#CDFF00" />
+  <circle cx="64" cy="64" r="6" fill="#F3F0E3" />
+</svg>

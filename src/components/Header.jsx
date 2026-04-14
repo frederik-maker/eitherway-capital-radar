@@ -1,19 +1,12 @@
 import { useWallet } from '../contexts/WalletContext';
 import { usePortfolio } from '../contexts/PortfolioContext';
+import logoMark from '../assets/capital-radar-mark.svg';
 
 function Logo() {
   return (
     <div className="flex items-center gap-2.5">
-      <div className="relative w-8 h-8">
-        <svg viewBox="0 0 32 32" className="w-8 h-8">
-          <circle cx="16" cy="16" r="13" fill="none" stroke="#CDFF00" strokeWidth="1.5" opacity="0.4" />
-          <circle cx="16" cy="16" r="8" fill="none" stroke="#CDFF00" strokeWidth="1.5" opacity="0.7" />
-          <circle cx="16" cy="16" r="3" fill="#CDFF00" />
-          <line x1="16" y1="0" x2="16" y2="5" stroke="#CDFF00" strokeWidth="1" opacity="0.3" />
-          <line x1="16" y1="27" x2="16" y2="32" stroke="#CDFF00" strokeWidth="1" opacity="0.3" />
-          <line x1="0" y1="16" x2="5" y2="16" stroke="#CDFF00" strokeWidth="1" opacity="0.3" />
-          <line x1="27" y1="16" x2="32" y2="16" stroke="#CDFF00" strokeWidth="1" opacity="0.3" />
-        </svg>
+      <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-graphite-800 border border-graphite-600/50 glow-acid-sm">
+        <img src={logoMark} alt="Capital Radar logo" className="w-7 h-7" />
       </div>
       <div>
         <span className="font-semibold text-cream-50 text-lg tracking-tight">Capital Radar</span>

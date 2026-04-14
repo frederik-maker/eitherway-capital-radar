@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useWallet } from '../contexts/WalletContext';
+import logoMark from '../assets/capital-radar-mark.svg';
 
 export default function ConnectScreen() {
   const { connect, availableWallets, status, error, connectDemo, demoProfiles } = useWallet();
@@ -14,11 +15,7 @@ export default function ConnectScreen() {
         {/* Hero */}
         <div className="text-center space-y-4">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-graphite-800 border border-graphite-600/50 glow-acid">
-            <svg viewBox="0 0 32 32" className="w-10 h-10">
-              <circle cx="16" cy="16" r="13" fill="none" stroke="#CDFF00" strokeWidth="1.5" opacity="0.4" />
-              <circle cx="16" cy="16" r="8" fill="none" stroke="#CDFF00" strokeWidth="1.5" opacity="0.7" />
-              <circle cx="16" cy="16" r="3" fill="#CDFF00" />
-            </svg>
+            <img src={logoMark} alt="Capital Radar logo" className="w-11 h-11" />
           </div>
           <h1 className="text-3xl font-bold text-cream-50 tracking-tight">Capital Radar</h1>
           <p className="text-cream-400 text-sm leading-relaxed max-w-sm mx-auto">

@@ -1,0 +1,41 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGlow" x1="210" y1="112" x2="955" y2="1030" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17220B" />
+      <stop offset="1" stop-color="#090B07" />
+    </linearGradient>
+    <radialGradient id="ambient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 380) rotate(90) scale(560)">
+      <stop stop-color="#1F300C" stop-opacity="0.8" />
+      <stop offset="1" stop-color="#0A0D07" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="beam" x1="350" y1="690" x2="721" y2="465" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BAE00" />
+      <stop offset="1" stop-color="#CDFF00" />
+    </linearGradient>
+    <radialGradient id="sweep" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 400) rotate(-32) scale(380)">
+      <stop stop-color="#CDFF00" stop-opacity="0.2" />
+      <stop offset="1" stop-color="#CDFF00" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="1200" rx="120" fill="#090B07" />
+  <rect x="36" y="36" width="1128" height="1128" rx="92" stroke="#232A16" stroke-width="2" />
+  <circle cx="600" cy="400" r="560" fill="url(#ambient)" />
+
+  <circle cx="600" cy="400" r="362" stroke="#161C0F" stroke-width="2" />
+  <circle cx="600" cy="400" r="286" stroke="#161C0F" stroke-width="2" />
+  <circle cx="600" cy="400" r="210" stroke="#161C0F" stroke-width="2" />
+
+  <path d="M600 400L907 238A351 351 0 0 1 778 678L600 400Z" fill="url(#sweep)" />
+
+  <path d="M874 164A362 362 0 1 0 889 621" stroke="#2C3815" stroke-width="42" stroke-linecap="round" />
+  <path d="M798 273A250 250 0 1 0 804 523" stroke="#43541D" stroke-width="30" stroke-linecap="round" />
+  <path d="M722 335A152 152 0 1 0 728 464" stroke="#66801A" stroke-width="18" stroke-linecap="round" />
+
+  <path d="M353 691L455 588L548 654L727 476" stroke="url(#beam)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="727" cy="476" r="40" fill="#CDFF00" />
+  <circle cx="600" cy="400" r="32" fill="#F3F0E3" />
+
+  <text x="600" y="890" fill="#F3F0E3" font-family="Avenir Next, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="118" font-weight="700" text-anchor="middle">Capital Radar</text>
+  <text x="600" y="972" fill="#CDFF00" font-family="Menlo, Monaco, Consolas, monospace" font-size="34" letter-spacing="7" text-anchor="middle">LIVE SOLANA CAPITAL INTELLIGENCE</text>
+</svg>
